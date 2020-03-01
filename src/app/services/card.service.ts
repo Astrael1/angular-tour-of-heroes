@@ -5,6 +5,7 @@ import { MessageService } from './message.service';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import {Card, Cards} from 'scryfall-sdk';
 
 
 @Injectable({providedIn: 'root'})
@@ -12,5 +13,12 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class CardService {
 
   constructor( private messageService: MessageService) { }
+
+  getCards(): Promise<Card[]>
+  {
+    return Cards.search("name:liliana")
+      .on("end", ()=> this.messageService.add("cards found"))
+      .waitForAll();
+  }
 
 }

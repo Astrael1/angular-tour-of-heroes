@@ -9,11 +9,13 @@ import { from } from 'rxjs';
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.scss']
 })
-export class CardsComponent implements OnInit {
+export class CardsComponent implements OnInit 
+{
+  cards: Card[];
 
   getCards(): void
   {
-    this.message.add('TODO implement getting cards');
+    this.cardService.getCards().then(result => this.cards = result);
   }
 
   constructor( private cardService: CardService, private message: MessageService) { }
