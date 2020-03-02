@@ -16,6 +16,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './services/in-memory-data.service';
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { CardListComponent } from './components/card-list/card-list.component';
 
 @NgModule({
   imports: [
@@ -38,7 +39,8 @@ HttpClientInMemoryWebApiModule.forRoot(
     HeroDetailComponent,
     MessagesComponent,
     HeroSearchComponent,
-    CardsComponent
+    CardsComponent,
+    CardListComponent
   ],
   bootstrap: [ AppComponent ]
 })
